@@ -4,37 +4,37 @@ file_name = 'Cook_book.txt'
 full_path = os.path.join(current,file_name)
 print(full_path)
 
-# cook_book = {}
+cook_book = {}
 
-# # with open(full_path,'rt',encoding='utf-8') as f:
-# #     cook_book = {}
-# #     for line in f:
-# #         dish = line.strip()
-# #         ingridients_count =(int(f.readline().strip()))
-# #         ingridients = []
-# #         for i in range(ingridients_count):
-# #             ing = f.readline().strip()
-# #             ingridient_name,number,measure = ing.split(' | ')
-# #             ingridients.append({
-# #                 'ingridient_name': ingridient_name,
-# #                 'number': number ,
-# #                 'measure': measure,
-# #             })
-# #         f.readline()
-# #         cook_book[dish] = ingridients
+with open(full_path,'rt',encoding='utf-8') as f:
+    cook_book = {}
+    for line in f:
+        dish = line.strip()
+        ingridients_count =(int(f.readline().strip()))
+        ingridients = []
+        for i in range(ingridients_count):
+            ing = f.readline().strip()
+            ingridient_name,number,measure = ing.split(' | ')
+            ingridients.append({
+                'ingridient_name': ingridient_name,
+                'number': number ,
+                'measure': measure,
+            })
+        f.readline()
+        cook_book[dish] = ingridients
 
-# def get_shop_list_by_dishes(dishes,person_count):
-#     dishes_dict = {}
-#     for dish in dishes:
-#         if dish in cook_book:
-#             for ingridient in cook_book[dish]:
-#                 dishes_dict[ingridient['ingridient_name']] = {
-#                 'number':int(ingridient['number']) * person_count,'measure':ingridient['measure']
-#                 } 
+def get_shop_list_by_dishes(dishes,person_count):
+    dishes_dict = {}
+    for dish in dishes:
+        if dish in cook_book:
+            for ingridient in cook_book[dish]:
+                dishes_dict[ingridient['ingridient_name']] = {
+                'number':int(ingridient['number']) * person_count,'measure':ingridient['measure']
+                } 
 
-#     return print(dishes_dict)  
+    return print(dishes_dict)  
 
-# get_shop_list_by_dishes(['Омлет','Фахитос'],4)
+get_shop_list_by_dishes(['Омлет','Фахитос'],4)
 
 file_1 = '1.txt'
 file_2 = '2.txt'
@@ -87,17 +87,3 @@ with open(full_path_4,'w',encoding='utf-8') as f:
             text = i.strip()
             print(text,file=f)
 
-
-# for i in sorted_files:
-#     for k in string_dict.keys() :
-#         if string_dict[k] == i:
-#             sorted_dict[k] = string_dict[k]
-
-# new_text = ""
-
-# for k,v in sorted_dict.items():
-#     new_text += k
-#     for j in v:
-#         new_text += str(j)
-
-# print(new_text)
